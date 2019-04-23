@@ -25,28 +25,28 @@ public class Course implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 	
-	@Column
+	//@Column
 	private String subject;
 	
-	@Column
+	//@Column
 	private int courseNumber;
 	
-	@Column
+	//@Column
 	private String courseDescription;
 	
-	@Column
+	//@Column
 	private double courseCredits;
 	
-	@Column
-	private Long prereqCourseId;
+	//@Column
+	private int prereqCourseId;
 	
-	@Column
-	private Long concurrentCourseId;
+	//@Column
+	private int concurrentCourseId;
 	
-	@Column
-	private Long screenerId;
+	//@Column
+	private int screenerId;
 	
 	@OneToMany (
 			mappedBy = "course",
