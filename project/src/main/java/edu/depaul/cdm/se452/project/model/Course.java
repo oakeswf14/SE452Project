@@ -10,7 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -45,8 +47,9 @@ public class Course implements Serializable {
 	//@Column
 	private int concurrentCourseId;
 	
-	//@Column
-	private int screenerId;
+	@JoinColumn
+	@OneToOne(cascade = CascadeType.ALL)
+	private Screener screener;
 	
 	@OneToMany (
 			mappedBy = "course",
