@@ -21,22 +21,22 @@ import lombok.ToString;
 @Data
 @Entity
 @Table(name = "PROFESSORS")
-public class Student implements Serializable {
+public class Professor implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int employee_id;
+    private int employeeId;
 	
 	//@Column
 	private String department;
 	
 	//@Column
-	private String first_name;
+	private String firstName;
 	
 	//@Column
-	private String last_name;
+	private String lastName;
 	
 	//@Column
 	private String email;

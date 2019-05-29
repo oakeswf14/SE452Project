@@ -36,10 +36,10 @@ public class Student implements Serializable {
 	private int gpa;
 	
 	//@Column
-	private String first_name;
+	private String firstName;
 	
 	//@Column
-	private String last_name;
+	private String lastName;
 	
 	//@Column
 	private String email;
