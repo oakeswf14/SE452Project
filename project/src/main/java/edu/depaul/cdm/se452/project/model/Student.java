@@ -27,7 +27,7 @@ public class Student implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int student_id;
+    private int studentId;
 	
 	//@Column
 	private String major;
@@ -48,11 +48,11 @@ public class Student implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Course course;
 	
-	@OneToMany (
+	/*@OneToMany (
 			mappedBy = "student",
 			cascade =  CascadeType.ALL,
 			fetch = FetchType.LAZY
 			)
 	@ToString.Exclude
-	private List<Course> previousCourses;
+	private List<Course> previousCourses;*/
 }

@@ -45,11 +45,11 @@ public class Professor implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Section section;
 	
-	@OneToMany (
+	/*@OneToMany (
 			mappedBy = "professor",
 			cascade =  CascadeType.ALL,
 			fetch = FetchType.LAZY
 			)
 	@ToString.Exclude
-	private List<Section> previousSection;
+	private List<Section> previousSection;*/
 }
