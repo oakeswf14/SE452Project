@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+        <link href="css/custom.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1 class="display-4"><p th:text="'Hello, student!'" /></h1>        
+            <p class="lead">Please use the following form to search for classes to enroll in.</p>
+        </div>
+        <div> 
+        <table>
+        	<thead>
+        		<th> Course Number </th>
+        		<th> Subject </th>
+        	</thead>
+        	<tbody>
+        		<tr th:if="${courses.empty}">
+        			<td th:colspan="2">No Courses Found </td>
+        		</tr>
+        		<tr th:each="course: ${courses}">
+        			<td><span th:text="${course.courseNumber}"> Course </span></td>
+            		<td><span th:text="${course.subject}"> Subject </span></td>
+        		</tr>
+        	</tbody>
+        </table>  
+        </div>     
+    </body>
+</html>

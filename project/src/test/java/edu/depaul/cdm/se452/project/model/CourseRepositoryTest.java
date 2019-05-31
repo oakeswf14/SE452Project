@@ -25,8 +25,8 @@ public class CourseRepositoryTest {
 		assertEquals(1, repository.findByCourseNumber(number).size());	
 	}
 	
-	/*@Test
+	@Test
 	public void testFindAll() {
 		assertEquals(2, repository.findAll().size());
-	}*/
+	}
 }

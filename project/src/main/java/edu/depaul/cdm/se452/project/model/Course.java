@@ -15,6 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.validator.constraints.Length;
+
 import lombok.Data;
 import lombok.ToString;
 
@@ -47,14 +50,14 @@ public class Course implements Serializable {
 	//@Column
 	private int concurrentCourseId;
 	
-	@JoinColumn
-	@OneToOne(cascade = CascadeType.ALL)
-	private Screener screener;
+	/*@OneToOne (cascade = CascadeType.ALL)
+	@JoinColumn(name = "screener_id", referencedColumnName = "id")
+	private Screener screener;*/
 	
 	@OneToMany (
-			mappedBy = "course",
+			mappedBy = "sectionCourse",
 			cascade =  CascadeType.ALL,
-			fetch = FetchType.LAZY
+			fetch = FetchType.LAZY, orphanRemoval = true
 			)
 	@ToString.Exclude
 	private List<Section> courseSections;

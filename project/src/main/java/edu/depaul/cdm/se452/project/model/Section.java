@@ -2,14 +2,19 @@ package edu.depaul.cdm.se452.project.model;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -18,7 +23,7 @@ import lombok.Data;
 @Table(name = "sections")
 public class Section implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,26 +32,22 @@ public class Section implements Serializable {
 	@Column
 	private int sectionNumber;
 	
-	@Column
+	//@Column
 	//holds the day(s) of the week the class section meets
-	private Date meetingDay;
+	//private Date meetingDay;
 	
-	@Column
+	//@Column
 	//holds the meeting time for the course section
-	private Date meetingTime;
+	//private Date meetingTime;
 	
-	@Column
+	//@Column
 	//holds the meeting location for the course section
 	//ONLINE for online courses
-	private String meetingLocation;
+	//private String meetingLocation;
 	
-	@Column
-	//foreign key to course table
-	private Long courseId;
-	
-	@Column
+	//@Column
 	//year value for when the section is offered
-	private Date termOffered;
+	//private Date termOffered;
 	
 	@Column
 	//number of possible seats to be filled for the course section
@@ -60,9 +61,10 @@ public class Section implements Serializable {
 	//number of seats to have for students waiting to enroll
 	private int waitListSeats;
 	
-	@ManyToOne
-	@JoinColumn(name = "course_section", nullable = false)
-	private Course course;
+	@ManyToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
+	@JoinColumn(name = "section_course", nullable = false)
+	@JsonIgnore
+	private Course sectionCourse;
 	
 	/*@OneToMany(
             mappedBy = "enrolled",

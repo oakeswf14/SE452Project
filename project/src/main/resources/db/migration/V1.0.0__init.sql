@@ -1,5 +1,5 @@
 create table COURSES (
-	id identity not null primary key,
+	id int primary key auto_increment,
 	subject varchar(50) not null,
 	course_number int,
 	course_description varchar(150) not null,

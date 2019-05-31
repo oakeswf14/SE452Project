@@ -27,7 +27,7 @@ public class Screener implements Serializable {
 	// optional description for screener, allows for notes or instructions from professor
 	private String description;
 	
-	@OneToOne(mappedBy = "screener")
-	private Course course;
+	/*@OneToOne(mappedBy = "screener")
+	private Course course;*/
 	
 }
