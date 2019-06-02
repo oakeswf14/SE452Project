@@ -17,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import edu.depaul.cdm.se452.project.model.Course;
 import edu.depaul.cdm.se452.project.model.CourseRepository;
+import edu.depaul.cdm.se452.project.model.FormCourse;
 
 @Controller
 @RequestMapping("/student")
@@ -30,30 +31,22 @@ public class StudentController implements WebMvcConfigurer {
 		this.courseRepo = repo;
 	}
 	
-	@GetMapping("addCourses")
+	@GetMapping("/addCourses")
 	public String showAllCourses(Model model)
 	{
-		//List <Course> courseList = courseRepo.findAll();
+		model.addAttribute("course", new Course());
 		model.addAttribute("courses", courseRepo.findAll());
-		//model.addAttribute("name", "Chris");
 		return "student/addCourses";
 	}
 	
-	@GetMapping("courseSearch")
-	public String showFilteredCourses(//@RequestParam (required = false) String subject,
-									  //@RequestParam (required = false) String code,
-									  @RequestParam String courseNumber,
-									  //@RequestParam (required = false) String term,
-									  Model model)
+	@PostMapping("/courseSearch")
+	public String showCourses( @Valid Course course, BindingResult bindingResult, Model model)
 	{
-		if (!courseNumber.isEmpty())
-			model.addAttribute("courses",courseRepo.findByCourseNumber(Integer.parseInt(courseNumber)));
-		return "student/addCourses";
-	}
-	
-	@PostMapping("courseSearch")
-	public String showCourses(@ModelAttribute Course course)
-	{
+		if (bindingResult.hasErrors())
+		{
+			return "student/addCourses";
+		}
+		
 		return "student/addCourses";
 	}
 }

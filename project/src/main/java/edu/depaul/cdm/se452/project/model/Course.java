@@ -50,6 +50,10 @@ public class Course implements Serializable {
 	//@Column
 	private int concurrentCourseId;
 	
+	private String courseCode;
+	
+	private String courseTerm;
+	
 	/*@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name = "screener_id", referencedColumnName = "id")
 	private Screener screener;*/
