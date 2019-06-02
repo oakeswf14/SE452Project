@@ -17,7 +17,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import edu.depaul.cdm.se452.project.model.Course;
 import edu.depaul.cdm.se452.project.model.CourseRepository;
-import edu.depaul.cdm.se452.project.model.FormCourse;
 
 @Controller
 @RequestMapping("/student")
